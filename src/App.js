@@ -3,6 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="wrapper">
+      <div className="overlay"></div>
       <header>
         <div className="headerLeft">
           <img height={40} src="https://cdn.api.kari.com/f/W2138021_001.jpg" />
@@ -30,9 +31,18 @@ function App() {
         </ul>
       </header>
       <div className="contents">
-        <h1>Все туфли</h1>
+        <div className="title-block">
+          <h1>Все туфли</h1>
+          <div className="search-block">
+            <img height={18} width={18} src="/img/search.png" alt="search" />
+            <input placeholder="Поиск..."/>
+          </div>
+        </div>
         <div className="cardContainer">
           <div className="card">
+            <div className="favorite">
+              <img src="img/unlikedHeart.svg" alt="Unliked"/>
+            </div>
             <img
               height={133}
               width={112}
