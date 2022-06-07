@@ -88,6 +88,11 @@ header {
     transform: translateY(-5px);
   }
 
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+
   .favorite {
     position: absolute;
     cursor: pointer;
