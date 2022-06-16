@@ -19,6 +19,7 @@ header {
   justify-content: space-between;
   padding: 15px;
   border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
 
   .headerLeft {
     display: flex;
@@ -71,62 +72,11 @@ header {
   }
 
 }
+
 .cardContainer {
   display: flex;
-
-  .card {
-  border: 1px solid hsl(0, 0%, 97%);
-  padding: 30px;
-  width: 210px;
-  border-radius: 40px;
-  box-shadow: 3px 3px 5px 0px #e7f6ff;
-  margin-right: 30px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
-    transform: translateY(-5px);
-  }
-
-  img {
-    margin: 0 auto;
-    display: block;
-  }
-
-  .favorite {
-    position: absolute;
-    cursor: pointer;
-  }
-
-  h5 {
-    font-weight: 400;
-    font-size: 14px;
-  }
-
-  .pic {
-    display: flex;
-    justify-content: space-between;
-    .sign {
-      display: flex;
-      flex-direction: column;
-
-      span {
-        opacity: 0.7;
-      }
-    }
-    .plusButton {
-      background: #ffffff;
-      border: 1px solid #f2f2f2;
-      box-sizing: border-box;
-      border-radius: 8px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-    }
-  }
+  flex-wrap: wrap;
 }
-}
-
 .overlay{
   position: absolute;
   left: 0;
