@@ -63,7 +63,7 @@ header {
       display: flex;
       align-items: center;
       input {
-        margin-left: 10px;
+        margin: 0 10px;
         padding: 10px;
         border: 1px solid rgba(128, 128, 128, 0.3);
         border-radius: 5px;
@@ -96,6 +96,28 @@ header {
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.01);
   padding: 30px;
+
+  .emptyCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 20px;
+    flex-direction: column;
+    text-align: center;
+
+    p {
+      opacity: 0.6;
+    }
+    .greenButton {
+      img {
+        transform: rotate(180deg);
+        margin-right: 20px;
+      }
+      &:hover img {
+        transform: rotate(180deg) translateX(5px);
+      }
+    }
+  }
 
   .cartItemWrapper {
     flex: auto;
@@ -153,7 +175,9 @@ header {
     border-bottom: 1px dashed #dfdfdf;
     margin: 0 10px 4px;
   }
-  .greenButton {
+}
+
+.greenButton {
     width: 100%;
     background: #9dd558;
     border-radius: 10px;
@@ -181,4 +205,3 @@ header {
       transition: transform 0.15s ease-in-out;
     }
   }
-}
