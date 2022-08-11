@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import Home from "./components/Home";
-import Test from "./components/Test";
+import Favorite from "./components/Favorite";
 
 import "./App.css";
 
@@ -23,6 +23,9 @@ function App() {
     axios
       .get("https://62ab0da8371180affbe01fc6.mockapi.io/cart")
       .then((res) => setCartShoes(res.data));
+    axios
+      .get("https://62ab0da8371180affbe01fc6.mockapi.io/favorite")
+      .then((res) => setFavorite(res.data));
   }, []);
 
   const onAddToCart = (obj) => {
@@ -37,8 +40,13 @@ function App() {
   };
 
   const onAddToFavorite = (obj) => {
-    axios.post("https://62ab0da8371180affbe01fc6.mockapi.io/favorite", obj);
-    setFavorite((prev) => [...prev, obj]);
+    if (favorite.find(favShoe => obj.id === favShoe.id)) {
+     axios.delete(`https://62ab0da8371180affbe01fc6.mockapi.io/favorite/${obj.id}`);
+     setFavorite((prev) => prev.filter(it => it.id !== obj.id));
+    } else {
+      axios.post("https://62ab0da8371180affbe01fc6.mockapi.io/favorite", obj);
+      setFavorite((prev) => [...prev, obj]);
+    }
   };
 
   const searchInputHandler = (event) => {
@@ -56,7 +64,6 @@ function App() {
       )}
       <Header onClickCart={() => setCartOpened(true)} />
       <Routes>
-        <Route path="/favorite" exact element={<Test />} />
         <Route
           path="/"
           exact
@@ -69,6 +76,13 @@ function App() {
               onAddToFavorite={onAddToFavorite}
               onAddToCart={onAddToCart}
             />
+          }
+        />
+        <Route
+          path="/favorite"
+          exact
+          element={
+            <Favorite favorite={favorite} onAddToFavorite={onAddToFavorite} />
           }
         />
       </Routes>
